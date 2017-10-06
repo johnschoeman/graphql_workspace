@@ -1,11 +1,106 @@
-###
+### Notes
 npm add is an alias for npm install
 
 ### Useful commands
+
+
 ```graphcool init --schema https://graphqlbin.com/hn-starter.graphql --name Hackernews```
 ```graphcool playground```  
 
 ```npm install -g create-react-app```
+
+### Making Queries
+sample query to send to the api: 
+```
+query AllLinks {
+  allLinks {
+    id
+    createdAt
+    description
+    url
+  }
+}
+```
+
+How to query data in your actual javascript:
+1. Use the query method on the apollo client directly:
+- a more imparitive way and allows to process the responses as a promise
+- ex:
+``` client.query({
+  query: gql`
+    query AllLinks {
+      allLinks {
+        id
+      }
+    }
+    `
+```
+}).then(response => console.log(response.data.allLinks));
+
+2. A more idomatic way is to use Apollo's higher level component, GraphQL, to wrap your component with a query.
+-write the graphql query and GraphQL will fetch the data under the hood and make the data available to your component as props.
+The Steps:
+1. write the query as a JS constant using the GQL parser function.  GQL comes from a node_module called gql-tag.  gql-tag takes a string literal and turns it into a graphql AST
+2. use the graphql container component to wrap your component with a query.
+3. lastly access the query through the props of the component. 
+
+
+```
+const ALL_LINKS_QUERY = gql`
+  query AllLinksQuery { //Operation name
+    allLinks {
+      id
+      createdAt
+      url
+      description
+    }
+  }
+`;
+```
+
+GraphQL container, option is passed to function call will dictate the name of prop to be injected into the component.
+```
+export default graphql(ALL_LINKS_QUERY, { name: 'allLinksQuery' })(LinkList)
+```
+
+Required imports:
+```
+import { graphql, gql } from 'react-apollo';
+```
+
+In general, the process for you to add some data fetching logic will be very similar every time:
+1. write the query as a JS constant using the gql parser function
+2. use the graphql container to wrap your component with the query
+3. access the query results in the component’s props
+
+### Mutations
+write the mutation as a JS constant using the gql parser function
+
+const EXAMPLE_MUTATION = gql`
+  mutation example {
+    exampleMutation
+  }
+`
+
+function ExampleComonent() {
+  return <h1>I'm an example!</h1>
+}
+
+use the graphql container to wrap your component with the mutation
+
+graphql(EXAMPLE_MUTATION)(ExampleComponent);
+
+
+// use the mutation function that gets injected into the component's props
+
+function ExampleComponent({ mutate }) {
+  return (
+    <div>
+      <h1>I'm an example!</h1>
+      <button onClick={function () { mutate().then(() => { console.log('HELLO')})}}>Click Me</button>
+    </div>
+  )
+}
 
 ### Questions
 What is graphcoolbin doing and why does it need authentication?
