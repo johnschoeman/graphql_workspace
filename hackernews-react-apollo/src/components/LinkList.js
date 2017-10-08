@@ -36,4 +36,4 @@ const ALL_LINKS_QUERY = gql`
   }
 `;
 
-export default graphql(ALL_LINKS_QUERY, { name: 'allLinksQuery' })(LinkList)
+export default graphql(ALL_LINKS_QUERY, { name: 'allLinksQuery' })(LinkList);
