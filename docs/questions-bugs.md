@@ -42,13 +42,20 @@ do?
 
   You cannot have queries and mutations in the same playground query.
 
+-----
+
   ```npm install -g create-react-app```
   Do not forget the -g
 
+-----
+
   network errors are beasts
+
+-----
 
   using create-react-native-app with expo: the uri for the expo app on your phone is not always the same as the uri for the chrome debugger.
 
+-----
 #### Event Pooling
 
   The Bug:
@@ -67,6 +74,7 @@ do?
 The actual solution
 in TextInput use onChangeText not onChange
 
+-----
   11:31:23 AM: Possible Unhandled Promise Rejection (id: 0):
 GraphQL error: Variable '$title' expected value of type 'String!' but got: {"_targetInst":null,"isTrusted":null,"isPropagationStopped":null,"isDefaultPrevented":null,"_dispatchInstances":null,"_dispatchListeners":null,"defaultPrevented":null,"dispatchConfig":null,"eventPhase":null,"bubbles":null,"target":null,"type":null,"nativeEvent":null,"cancelable":null}. Reason: String value expected (line 1, column 29):
 mutation CreatePostMutation($title: String!, $body: String) {
@@ -76,7 +84,7 @@ mutation CreatePostMutation($title: String!, $body: String) {
 
 Solution: Verify onChangeText callback is updating the component state proply
 
-
+-----
 In graphiql.app 
 ```
 {
@@ -102,12 +110,16 @@ mutation {
 ```
 the problem: forgot a '{' in your mutation
 
-
+-----
 [exp] Error running `xcrun simctl openurl booted exp://localhost:19000`: An error was encountered processing the command (domain=NSPOSIXErrorDomain, code=60):
 The operation couldn’t be completed. Operation timed out
 Operation timed out
 
-related: ```exp start -i```
+related: 
+```
+exp start -i
+```
+
 when ios simulator opens, it rebundles over and over.
 
 solution: verifiy watchman is installed with watchman -v
@@ -116,7 +128,7 @@ if not:
 brew update
 brew install watchman
 ```
-
+-----
 ### Notes
 npm add is an alias for npm install
 
