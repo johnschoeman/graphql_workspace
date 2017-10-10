@@ -77,6 +77,46 @@ mutation CreatePostMutation($title: String!, $body: String) {
 Solution: Verify onChangeText callback is updating the component state proply
 
 
+In graphiql.app 
+```
+{
+  "errors": [
+    {
+      "message": "Syntax Error GraphQL request (6:1) Expected Name, found <EOF>\n\n5: \n6: \n   ^\n",
+      "locations": [
+        {
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ]
+}
+```
+with
+```
+mutation {
+  signup(email: "john@john.john", fullName: "John Schoeman", username: "john_schoeman", password: "password") {
+    token
+  }
+```
+the problem: forgot a '{' in your mutation
+
+
+[exp] Error running `xcrun simctl openurl booted exp://localhost:19000`: An error was encountered processing the command (domain=NSPOSIXErrorDomain, code=60):
+The operation couldn’t be completed. Operation timed out
+Operation timed out
+
+related: ```exp start -i```
+when ios simulator opens, it rebundles over and over.
+
+solution: verifiy watchman is installed with watchman -v
+if not:
+```bash
+brew update
+brew install watchman
+```
+
 ### Notes
 npm add is an alias for npm install
 
