@@ -128,6 +128,10 @@ if not:
 brew update
 brew install watchman
 ```
+
+also related is a mac process called bird, the backend of icloud drive.
+- check your activity montior and verify that bird isn't going crazy.
+- posible solution is to remove your local repo from your icloud drive sync'd folders.
 -----
 ### Notes
 npm add is an alias for npm install
