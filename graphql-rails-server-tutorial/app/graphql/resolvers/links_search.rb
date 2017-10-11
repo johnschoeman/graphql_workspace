@@ -21,6 +21,9 @@ class Resolvers::LinksSearch
 
   # when "filter" is passed "apply_filter" would be called to narrow the scope
   option :filter, type: LinkFilter, with: :apply_filter
+  # pagination options
+  option :first, type: types.Int, with: :apply_first
+  option :skip, type: types.Int, with: :apply_skip
 
   # apply_filter recursively loops through "OR" branches
   def apply_filter(scope, value)
@@ -41,5 +44,14 @@ class Resolvers::LinksSearch
     value['OR'].reduce(branches) { |s, v| normalize_filters(v, s) } if value['OR'].present?
 
     branches
+  end
+
+  # pagination
+  def apply_first(scope, value)
+    scope.limit(value)
+  end
+
+  def apply_skip(scope, value)
+    scope.offset(value)
   end
 end

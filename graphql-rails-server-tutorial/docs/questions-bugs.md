@@ -10,6 +10,17 @@
 
   why are individual resolvers their own classes? why do we have a single LinksResolver class with many link related resolver actions?
 
+  ----
+
+  "In this tutorial, you’ll implement a simple pagination approach that’s called limit-offset pagination. This method would not work with Relay on the frontend since Relay requires cursor-based pagination using the concept of connections. You can read more about pagination in the GraphQL docs."
+
+  What is the difference between limit-offset pagination and cursor-based pagination?  what works best with apollo?
+
+
+  ----
+
+  what does the option key word do within a resolver class
+
 ### Bugs
 
 in graphiql
