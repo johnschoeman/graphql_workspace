@@ -6,6 +6,8 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :allLinks, !types[Types::LinkType] do
     resolve -> (obj, args, ctx) { Link.all }
   end
+
+  field :searchAllLinks, function: Resolvers::LinksSearch
   # TODO: remove me
   # field :testField, types.String do
   #   description "An example field added by the generator"
