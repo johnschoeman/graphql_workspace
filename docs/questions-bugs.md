@@ -63,7 +63,7 @@ _createLink = async () => {
         url,
         postedById
       },
-      update: (store, { data: { createLink } }) => {
+      update: (store, { data: { createLink } }) => {`
         const data = store.readQuery({ query: ALL_LINKS_QUERY });
         data.allLinks.splice(0,0,createLink)
         store.writeQuery({
