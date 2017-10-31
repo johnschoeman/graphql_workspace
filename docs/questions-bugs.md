@@ -133,6 +133,15 @@ also related is a mac process called bird, the backend of icloud drive.
 - check your activity montior and verify that bird isn't going crazy.
 - posible solution is to remove your local repo from your icloud drive sync'd folders.
 -----
+
+in react native with apollo client rendering {data} caused the component to not rerender even when the props changed.
+```javascript
+          <View>
+            <Text>GetSpot</Text>
+            <Text>{data}</Text>
+          </View>
+```
+____
 ### Notes
 npm add is an alias for npm install
 
