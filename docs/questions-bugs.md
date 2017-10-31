@@ -36,6 +36,50 @@ what does
 ```npm run start -- --reset-cache```
 do?
 
+----
+
+how do
+store#readLines,
+data#prop#find,
+and
+store#writeQuery
+
+work in apollo?
+
+----
+
+in
+```javascript
+_createLink = async () => {
+    const postedById = localStorage.getItem(GC_USER_ID)
+    if (!postedById) {
+      console.error('No user logged in')
+      return
+    }
+    const { description, url } = this.state
+    await this.props.createLinkMutation({
+      variables: {
+        description,
+        url,
+        postedById
+      },
+      update: (store, { data: { createLink } }) => {
+        const data = store.readQuery({ query: ALL_LINKS_QUERY });
+        data.allLinks.splice(0,0,createLink)
+        store.writeQuery({
+          query: ALL_LINKS_QUERY,
+          data
+        })
+      }
+    })
+    this.props.history.push(`/`)
+  }
+```
+
+why are we adding createLink to the data.allLinks property?
+
+---
+
 ### Bugs
   {master} graphql_workspace$ open project.graphcool 
   No application knows how to open /Users/johnschoeman/workspace/graphql_workspace/project.graphcool.
