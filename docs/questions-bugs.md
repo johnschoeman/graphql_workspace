@@ -199,6 +199,8 @@ proxyConsole.js:54 Error: Can't find field allLinks({"filter":{"OR":[{},{}]}}) o
 ```
 
 did you remember to wrap your dumb componet with the apollo HOC?
+are you passing the right variables into readQuery?
+"Through the changes that we made to the ALL_LINKS_QUERY, you’ll notice that the update functions of your mutations don’t work any more. That’s because readQuery now also expects to get passed the same variables that we defined before."
 
 ----
 ### Notes
