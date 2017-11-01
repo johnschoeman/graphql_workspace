@@ -6,6 +6,10 @@ const typeDefs = `
     allLinks: [Link!]
   }
 
+  type Mutation {
+    createLink(url: String!, description: String!): Link
+  }
+
   type Link {
     id: ID!
     url: String!
