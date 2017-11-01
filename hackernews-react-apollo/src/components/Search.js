@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import { gql, withApollo } from 'react-apollo';
+import { gql, graphql, withApollo } from 'react-apollo';
 import Link from './Link';
 import { ALL_LINKS_QUERY } from './LinkList';
+
 
 class Search extends Component {
    state = {
      links: [],
      searchText: ''
    }
-
-   _updateCacheAfterVote = (store, createVote, linkId) => {
-    const data = store.readQuery({ query: ALL_LINKS_SEARCH_QUERY })
-
-    const votedLink = data.allLinks.find(link => link.id === linkId)
-
-    votedLink.votes = createVote.link.votes
-    store.writeQuery({ query: ALL_LINKS_SEARCH_QUERY, data })
-  }
 
    render() {
      return (
@@ -33,7 +25,7 @@ class Search extends Component {
              OK
           </button>
          </div>
-         {this.state.links.map((link, index) => <Link key={link.id} updateStoreAfterVote={this._updateCacheAfterVote} link={link} index={index}/>)}
+         {this.state.links.map((link, index) => <Link key={link.id} link={link} index={index}/>)}
        </div>
      )
    }
@@ -77,3 +69,5 @@ query AllLinksSearchQuery($searchText: String!) {
 `
 
 export default withApollo(Search)
+
+// export default withApollo(graphql(ALL_LINKS_SEARCH_QUERY, {name: 'allLinksSearchQuery'})(Link));

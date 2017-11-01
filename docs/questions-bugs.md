@@ -186,6 +186,21 @@ in react native with apollo client rendering {data} caused the component to not 
           </View>
 ```
 ____
+
+```
+proxyConsole.js:54 Error: Can't find field allLinks({"filter":{"OR":[{},{}]}}) on object (ROOT_QUERY) {
+  "allLinks({\"filter\":{\"OR\":[{\"url_contains\":\"cool\"},{\"description_contains\":\"cool\"}]}})": [
+    {
+      "type": "id",
+      "id": "Link:cj8ffg4a66wov0100uvnjdwu0",
+      "generated": false
+    },
+
+```
+
+did you remember to wrap your dumb componet with the apollo HOC?
+
+----
 ### Notes
 npm add is an alias for npm install
 
