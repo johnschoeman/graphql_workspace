@@ -4,4 +4,4 @@ const TweetSchema = new Schema({
   text: String,
 });
 
-export default mongoose.model('Tweet", TweetSchema');
+export default mongoose.model('Tweet', TweetSchema);

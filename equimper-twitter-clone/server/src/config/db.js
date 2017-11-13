@@ -1,10 +1,12 @@
+/* eslint-disable no-console */
+
 import mongoose from 'mongoose';
 
 import constants from './constants';
 
-mongoose.Promis = global.Promise;
+mongoose.Promise = global.Promise;
 
-mongoose.set('debug', true);
+mongoose.set('debug', true); // debug mode on
 
 try {
   mongoose.connect(constants.DB_URL, {

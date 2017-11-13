@@ -1,4 +1,4 @@
-import TweetResolvers from './tweet-resolver';
+import TweetResolvers from './tweet-resolvers';
 
 export default {
   Query: {
