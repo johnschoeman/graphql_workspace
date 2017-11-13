@@ -6,8 +6,9 @@ import UserResolvers from './user-resolvers';
 export default {
   Date: GraphQLDate,
   Query: {
-    getTweets: TweetResolvers.getTweets,
     getTweet: TweetResolvers.getTweet,
+    getTweets: TweetResolvers.getTweets,
+    me: UserResolvers.me,
   },
   Mutation: {
     createTweet: TweetResolvers.createTweet,
