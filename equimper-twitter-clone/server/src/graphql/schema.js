@@ -15,6 +15,7 @@ type User {
   avatar: String
   createdAt: Date!
   updatedAt: Date!
+  tweets: [Tweet]
 }
 type Me {
   _id: ID!
@@ -25,16 +26,20 @@ type Me {
   avatar: String
   createdAt: Date!
   updatedAt: Date!
+  tweets: [Tweet]
 }
 type Tweet {
   _id: ID!
   text: String!
+  user: User!
+  favoriteCount: Int!
   createdAt: Date!
   updatedAt: Date!
 }
 type Query {
   getTweet(_id: ID!): Tweet
   getTweets: [Tweet]
+  getUserTweets: [Tweet]
   me: Me
 }
 type Mutation {

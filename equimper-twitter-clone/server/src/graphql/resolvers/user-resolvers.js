@@ -37,7 +37,6 @@ export default {
 
   me: async (_, args, { user }) => {
     try {
-      console.log(user);
       const me = await requireAuth(user);
 
       return me;
