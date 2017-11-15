@@ -7,7 +7,6 @@ const Root = styled.View`
   flex: 1;
   paddingTop: 5;
   alignItems: center;
-  backgroundColor: #f2f2f2;
 `;
 
 const List = styled.ScrollView`
