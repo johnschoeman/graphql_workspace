@@ -86,16 +86,10 @@ const AppMainNav = StackNavigator({
 
 class AppNavigator extends Component {
   render() {
-    const nav = addNavigationHelpers({
-      dispatch: this.props.dispatch,
-      state: this.props.nav
-    });
-    return <AppMainNav navigation={nav} />
+    return <AppMainNav />
   }
 }
 
-export default connect(state => ({
-  nav: state.nav
-}))(AppNavigator);
+export default AppNavigator;
 
 export const router = AppMainNav.router;
