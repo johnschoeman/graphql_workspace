@@ -60,7 +60,6 @@ const MetaText = styled.Text`
 `;
 
 function FeedCardHeader({firstName, lastName, username, createdAt, avatar}) {
-  console.log(avatar);
   return (
     <Root>
       <AvatarContainer>

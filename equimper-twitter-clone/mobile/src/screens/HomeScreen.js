@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import { ActivityIndicator, FlatList } from 'react-native';
 
 import FeedCard from '../components/FeedCard/FeedCard';

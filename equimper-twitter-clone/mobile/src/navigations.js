@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { addNavigationHelpers, StackNavigator, TabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import { FontAwesome } from '@expo/vector-icons';
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import HomeScreen from './screens/HomeScreen';
 import ExplorerScreen from './screens/ExplorerScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import AuthenticationScreen from './screens/AuthenticationScreen';
 import { colors } from './utils/constants';
 
 const TAB_ICON_SIZE = 20;
@@ -86,10 +89,18 @@ const AppMainNav = StackNavigator({
 
 class AppNavigator extends Component {
   render() {
+    if (!this.props.user.isAuthenticated) {
+      return <AuthenticationScreen />
+    }
     return <AppMainNav />
   }
 }
 
-export default AppNavigator;
+const mapStateToProps = (state) => ({
+  nav: state.nav,
+  user: state.user
+})
+
+export default compose(connect(mapStateToProps))(AppNavigator);
 
 export const router = AppMainNav.router;
