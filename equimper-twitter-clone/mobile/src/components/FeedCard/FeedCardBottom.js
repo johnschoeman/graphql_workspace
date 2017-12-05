@@ -34,7 +34,11 @@ function FeedCardBottom({ favoriteCount }) {
   return (
     <Root>
       <Button>
-        <SimpleLineIcons name="bubble" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
+        <SimpleLineIcons
+          name="bubble"
+          size={ICON_SIZE}
+          color={colors.LIGHT_GRAY}
+        />
         <ButtonText>
           {favoriteCount}
         </ButtonText>
@@ -46,17 +50,17 @@ function FeedCardBottom({ favoriteCount }) {
         </ButtonText>
       </Button>
       <Button>
-        <Entypo 
-          name="heart-outlined" 
-          size={ICON_SIZE} 
-          color={isFavorite ? 'red' : colors.LIGHT_GRAY} 
-          />
+        <Entypo
+          name="heart-outlined"
+          size={ICON_SIZE}
+          color={isFavorite ? 'red' : colors.LIGHT_GRAY}
+        />
         <ButtonText>
           {favoriteCount}
         </ButtonText>
       </Button>
     </Root>
-  )
+  );
 }
 
 export default FeedCardBottom;

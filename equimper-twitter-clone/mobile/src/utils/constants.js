@@ -5,4 +5,5 @@ export const colors = {
   LIGHT_GRAY: '#CAD0D6',
 };
 
-export const FAKE_AVATAR = 'https://a.thumbs.redditmedia.com/pwQoeHxE5kwjc6yG6Ki94ommhrtMlzYpX6z03zuAjm0.png'
+export const FAKE_AVATAR =
+  'https://a.thumbs.redditmedia.com/pwQoeHxE5kwjc6yG6Ki94ommhrtMlzYpX6z03zuAjm0.png';

@@ -11,7 +11,7 @@ class ExplorerScreen extends Component {
       <Root>
         <T>Exlore</T>
       </Root>
-    )
+    );
   }
 }
 

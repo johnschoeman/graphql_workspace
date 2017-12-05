@@ -11,7 +11,7 @@ class ProfileScreen extends Component {
       <Root>
         <T>Profile</T>
       </Root>
-    )
+    );
   }
 }
 

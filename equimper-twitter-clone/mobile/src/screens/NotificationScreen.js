@@ -11,7 +11,7 @@ class NotificationScreen extends Component {
       <Root>
         <T>Notifications</T>
       </Root>
-    )
+    );
   }
 }
 

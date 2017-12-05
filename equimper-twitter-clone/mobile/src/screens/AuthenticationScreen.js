@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
-import Touchable from '@appandflow/touchable'
+import Touchable from '@appandflow/touchable';
 
 import SignupForm from '../components/SignupForm';
 
@@ -17,7 +17,7 @@ const ButtonSignupText = styled.Text`
 `;
 
 const ButtonSignup = styled(Touchable).attrs({
-  feedback: 'opacity'
+  feedback: 'opacity',
 })`
   height: 75;
   width: 150;
@@ -34,7 +34,7 @@ const ButtonSignup = styled(Touchable).attrs({
   shadowOffset: 0px 4px;
   shadowColor: #000;
   elevation: 2;
-`
+`;
 
 const ButtonTextContainer = styled.View`
   position: absolute;
@@ -44,21 +44,21 @@ const ButtonTextContainer = styled.View`
   height: 200;
   justifyContent: center;
   AlignItems: center;
-`
+`;
 
 const ButtonLogin = styled(Touchable).attrs({
   feedback: 'opacity',
-  hitSlop: { top: 20, right: 20, bottom: 20, left: 20 }
+  hitSlop: { top: 20, right: 20, bottom: 20, left: 20 },
 })`
   justiftyContent: center;
   alignItems: center;
-`
+`;
 
 const ButtonLoginText = styled.Text`
   color: ${props => props.theme.WHITE};
   fontWeight: 400;
   fontSize: 16;
-`
+`;
 
 const initialState = {
   showSignup: false,
@@ -66,23 +66,24 @@ const initialState = {
 };
 
 class AuthenticationScreen extends Component {
-  state = initialState
+  state = initialState;
 
   _onShowSignupPress = () => {
-    this.setState({showSignup: true})
-  }
+    this.setState({ showSignup: true });
+  };
 
   _onBackPress = () => {
-    this.setState({ ...initialState })
-  }
+    this.setState({ ...initialState });
+  };
 
   render() {
+    const { store } = this.props
     if (this.state.showSignup) {
       return (
         <Root>
-          <SignupForm onBackPress={this._onBackPress} />
+          <SignupForm onBackPress={this._onBackPress} store={store}/>
         </Root>
-      )
+      );
     }
     return (
       <Root>
@@ -95,7 +96,7 @@ class AuthenticationScreen extends Component {
           </ButtonLogin>
         </ButtonTextContainer>
       </Root>
-    )
+    );
   }
 }
 

@@ -4,8 +4,6 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-
-
 const middlewares = [client.middleware(), thunk];
 
 export const store = createStore(

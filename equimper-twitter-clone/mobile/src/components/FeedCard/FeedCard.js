@@ -25,7 +25,7 @@ const CardContentText = styled.Text`
   fontSize: 14;
   textAlign: left;
   fontWeight: 500;
-  color: ${props => props.theme.SECONDARY}
+  color: ${props => props.theme.SECONDARY};
 `;
 
 function FeedCard({ text, user, createdAt, favoriteCount }) {
@@ -37,9 +37,9 @@ function FeedCard({ text, user, createdAt, favoriteCount }) {
           {text}
         </CardContentText>
       </CardContentContainer>
-      <FeedCardBottom favoriteCount={favoriteCount}/>
+      <FeedCardBottom favoriteCount={favoriteCount} />
     </Root>
-  )
+  );
 }
 
 export default FeedCard;

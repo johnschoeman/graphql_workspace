@@ -13,9 +13,8 @@ const Root = styled.View`
 `;
 
 class HomeScreen extends Component {
+  _renderItem = ({ item }) => <FeedCard {...item} />;
 
-  _renderItem = ({ item }) => <FeedCard {...item} />
-  
   render() {
     const { data } = this.props;
     if (data.loading) {
@@ -23,14 +22,14 @@ class HomeScreen extends Component {
         <Root>
           <ActivityIndicator size="large" />
         </Root>
-      )
+      );
     }
     return (
       <Root>
         <FlatList
           contentContainerStyle={{ alignSelf: 'stretch' }}
           data={data.getTweets}
-          keyExtractor={item => item._id }
+          keyExtractor={item => item._id}
           renderItem={this._renderItem}
         />
       </Root>

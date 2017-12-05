@@ -10,6 +10,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import reducers from './src/reducers';
+import { Provider } from 'react-redux';
 
 import { colors } from './src/utils/constants';
 import AppNavigation from './src/navigations';
@@ -35,12 +36,15 @@ export const store = createStore(
 // Why do I have to thread the store in manually?
 export default class App extends React.Component {
   render() {
+    console.log(store)
     return (
-      <ApolloProvider client={client} store={store}>
-        <ThemeProvider theme={colors}>
-          <AppNavigation store={store}/>
-        </ThemeProvider>
-      </ApolloProvider>
+      <Provider store={store}>
+        <ApolloProvider client={client}>
+          <ThemeProvider theme={colors}>
+            <AppNavigation store={store}/>
+          </ThemeProvider>
+        </ApolloProvider>
+      </Provider>
     );
   }
 }

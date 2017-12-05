@@ -50,20 +50,20 @@ const MetaFullName = styled.Text`
   fontSize: 16;
   fontWeight: bold;
   marginRight: 5;
-  color: ${ props => props.theme.SECONDARY };
+  color: ${props => props.theme.SECONDARY};
 `;
 
 const MetaText = styled.Text`
   fontSize: 14;
   fontWeight: 600;
-  color: ${ props => props.theme.LIGHT_GRAY };
+  color: ${props => props.theme.LIGHT_GRAY};
 `;
 
-function FeedCardHeader({firstName, lastName, username, createdAt, avatar}) {
+function FeedCardHeader({ firstName, lastName, username, createdAt, avatar }) {
   return (
     <Root>
       <AvatarContainer>
-        <Avatar source={{ uri: avatar || FAKE_AVATAR }}/>
+        <Avatar source={{ uri: avatar || FAKE_AVATAR }} />
       </AvatarContainer>
       <MetaContainer>
         <MetaTopContainer>
